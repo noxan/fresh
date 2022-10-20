@@ -5,6 +5,8 @@ import {
 } from "https://esm.sh/twind@1.0.0-next.39";
 import presetTailwind from "https://esm.sh/@twind/preset-tailwind@1.0.0-next.39";
 
+const STYLE_ELEMENT_ID = "__FRSH_TWIND";
+
 const config = defineConfig({
   presets: [presetTailwind()],
 });
@@ -20,7 +22,9 @@ export default function twind(): Plugin {
       const { html, css } = extract(res.htmlText);
       console.log(res);
       console.log(html, css);
-      return {};
+      return {
+        styles: [{ cssText: css, id: STYLE_ELEMENT_ID }],
+      };
     },
   };
 }
