@@ -1,4 +1,8 @@
-import { setup, defineConfig } from "https://esm.sh/twind@1.0.0-next.39";
+import {
+  defineConfig,
+  extract,
+  setup,
+} from "https://esm.sh/twind@1.0.0-next.39";
 import presetTailwind from "https://esm.sh/@twind/preset-tailwind@1.0.0-next.39";
 
 const config = defineConfig({
@@ -13,7 +17,9 @@ export default function twind(): Plugin {
     name: "twind-next",
     render(ctx) {
       const res = ctx.render();
+      const { html, css } = extract(res.htmlText);
       console.log(res);
+      console.log(html, css);
       return {};
     },
   };
