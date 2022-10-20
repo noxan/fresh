@@ -6,15 +6,7 @@ import {
 import presetTailwind from "https://esm.sh/@twind/preset-tailwind@1.0.0-next.39";
 import { JSX, options as preactOptions, VNode } from "preact";
 
-declare module "preact" {
-  namespace JSX {
-    interface DOMAttributes<Target extends EventTarget> {
-      class?: string;
-      className?: string;
-    }
-  }
-}
-
+// Copied from existing twind plugin
 const setupPreactTailwindHook = () => {
   const originalHook = preactOptions.vnode;
   // deno-lint-ignore no-explicit-any
