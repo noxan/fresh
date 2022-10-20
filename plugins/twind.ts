@@ -1,11 +1,11 @@
-import { virtualSheet } from "twind/sheets";
+import { getSheet } from "twind";
 import { Plugin } from "../server.ts";
 
 import { Options, setup, STYLE_ELEMENT_ID } from "./twind/shared.ts";
 export type { Options };
 
 export default function twind(options: Options): Plugin {
-  const sheet = virtualSheet();
+  const sheet = getSheet();
   setup(options, sheet);
   const main = `data:application/javascript,import hydrate from "${
     new URL("./twind/main.ts", import.meta.url).href
