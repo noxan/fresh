@@ -53,9 +53,7 @@ export default function twind(): Plugin {
     name: "twind-next",
     render(ctx) {
       const res = ctx.render();
-      const { html, css } = extract(res.htmlText);
-      console.log(res);
-      console.log(html, css);
+      const { css } = extract(res.htmlText);
       return {
         styles: [{ cssText: css, id: STYLE_ELEMENT_ID }],
       };
