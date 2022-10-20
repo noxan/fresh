@@ -1,3 +1,11 @@
+import { setup, defineConfig } from "https://esm.sh/twind@1.0.0-next.39";
+import presetTailwind from "https://esm.sh/@twind/preset-tailwind@1.0.0-next.39";
+
+const config = defineConfig({
+  presets: [presetTailwind()],
+});
+const tw = setup(config);
+
 import { Plugin } from "../server.ts";
 
 export default function twind(): Plugin {
